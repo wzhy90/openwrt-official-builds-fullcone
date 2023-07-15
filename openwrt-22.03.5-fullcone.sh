@@ -3,7 +3,7 @@
 OPENWRT_REPO="https://github.com/openwrt/openwrt.git"
 OPENWRT_DL="https://downloads.cdn.openwrt.org"
 
-OPENWRT_VER=22.03.3
+OPENWRT_VER=22.03.5
 FULL_TARGET=${1:-x86/64}
 
 TARGET="$(echo "$FULL_TARGET" | cut -s -d/ -f1)"

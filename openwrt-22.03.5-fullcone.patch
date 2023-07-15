@@ -2295,16 +2295,16 @@ index 0000000..c28947a
 +MODULE_ALIAS_NFT_EXPR("fullcone");
 +MODULE_DESCRIPTION("Netfilter nftables fullcone expression support of RFC3489 full cone NAT");
 diff --git a/package/libs/libnftnl/Makefile b/package/libs/libnftnl/Makefile
-index 37835b4..5342ac2 100644
+index 8434234..58c4a9e 100644
 --- a/package/libs/libnftnl/Makefile
 +++ b/package/libs/libnftnl/Makefile
-@@ -8,17 +8,18 @@
+@@ -9,17 +9,18 @@
  include $(TOPDIR)/rules.mk
  
  PKG_NAME:=libnftnl
+ PKG_CPE_ID:=cpe:/a:netfilter:libnftnl
 -PKG_VERSION:=1.2.1
 -PKG_RELEASE:=$(AUTORELEASE)
-+PKG_CPE_ID:=cpe:/a:netfilter:libnftnl
 +PKG_VERSION:=1.2.4
 +PKG_RELEASE:=1-fullcone
  
@@ -2316,7 +2316,7 @@ index 37835b4..5342ac2 100644
  PKG_MAINTAINER:=Steven Barth <steven@midlink.org>
  PKG_LICENSE:=GPL-2.0-or-later
  PKG_LICENSE_FILES:=COPYING
--
+ 
 +PKG_FIXUP:=autoreconf
  PKG_INSTALL:=1
  PKG_BUILD_PARALLEL:=1
@@ -2582,10 +2582,10 @@ index 0000000..0e8b349
 + 	&expr_ops_meta,
 + 	&expr_ops_ng,
 diff --git a/package/network/config/firewall4/Makefile b/package/network/config/firewall4/Makefile
-index 58ed133..effe2cd 100644
+index 47c2cc5..effe2cd 100644
 --- a/package/network/config/firewall4/Makefile
 +++ b/package/network/config/firewall4/Makefile
-@@ -5,13 +5,13 @@
+@@ -5,7 +5,7 @@
  include $(TOPDIR)/rules.mk
  
  PKG_NAME:=firewall4
@@ -2594,15 +2594,6 @@ index 58ed133..effe2cd 100644
  
  PKG_SOURCE_PROTO:=git
  PKG_SOURCE_URL=$(PROJECT_GIT)/project/firewall4.git
--PKG_SOURCE_DATE:=2022-10-14
--PKG_SOURCE_VERSION:=4fbf6d75a4a9e523d1848a28d8a3ea095e870195
--PKG_MIRROR_HASH:=d8ffb01baf0c8412962aaaf504ad05387f3fef5bd709f7b7840ddd4e8311b4bb
-+PKG_SOURCE_DATE:=2022-10-18
-+PKG_SOURCE_VERSION:=7ae5e14bbd7265cc67ec870c3bb0c8e197bb7ca9
-+PKG_MIRROR_HASH:=ce190e526df915df65b40aa24fadf2a1b5badc57ab4e564d5f44575b11d18e26
- PKG_MAINTAINER:=Jo-Philipp Wich <jo@mein.io>
- PKG_LICENSE:=ISC
- 
 diff --git a/package/network/config/firewall4/patches/999-01-firewall4-add-fullcone-support.patch b/package/network/config/firewall4/patches/999-01-firewall4-add-fullcone-support.patch
 new file mode 100644
 index 0000000..492e047
